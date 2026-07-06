@@ -7,7 +7,6 @@ const asciiOutput = document.getElementById('asciiOutput');
 const copyBtn = document.getElementById('copyBtn');
 const dropZone = document.getElementById('dropZone');
 
-// Using Pollinations.ai for free image generation (no API key needed)
 const IMAGE_API_URL = 'https://image.pollinations.ai/prompt/';
 
 let currentImage = null;
@@ -29,11 +28,9 @@ generateBtn.addEventListener('click', async () => {
     copyBtn.classList.add('hidden');
 
     try {
-        // Generate image using Pollinations.ai (free, no API key)
         const imageUrl = `${IMAGE_API_URL}${encodeURIComponent(prompt)}?width=1024&height=1024&nologo=true`;
         console.log('Generating image from:', imageUrl);
         
-        // Fetch image as blob to avoid CORS issues
         const response = await fetch(imageUrl);
         if (!response.ok) {
             throw new Error('Failed to fetch image from API');
@@ -59,7 +56,6 @@ generateBtn.addEventListener('click', async () => {
 
         generateBtn.textContent = 'Converting to ASCII...';
         
-        // Convert image to ASCII
         const asciiArt = convertImageToASCII(img, currentWidth);
         await typewriterEffect(asciiArt);
         copyBtn.classList.remove('hidden');
@@ -90,7 +86,6 @@ sizeInput.addEventListener('input', () => {
     }
 });
 
-// Image upload handlers
 imageInput.addEventListener('change', e => {
     const file = e.target.files[0];
     if (file) processImage(file);
