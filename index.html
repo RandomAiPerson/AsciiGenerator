@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Art Maker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Custom ASCII Art Maker</h1>
+
+        <div class="prompt-section">
+            <textarea id="promptInput" placeholder="Describe what you want to create in ASCII art..."></textarea>
+            <button id="generateBtn">Generate ASCII</button>
+        </div>
+
+        <div class="upload-section" id="dropZone">
+            <input type="file" id="imageInput" accept="image/*">
+            <label for="imageInput" class="upload-label">
+                Or Upload Image
+            </label>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="contrast">Contrast:</label>
+                <div class="range-slider"><input type="range" id="contrast" min="50" max="200" value="100" steps="10"><span data-value="50">100</span></div>
+            </div>
+            <div class="control-group">
+                <label for="size">Size:</label>
+                <div class="range-slider"><input type="range" id="size" min="50" max="200" value="100" steps="10"><span data-value="50">100</span></div>
+            </div>
+        </div>
+
+        <div class="output-section">
+            <pre id="asciiOutput"></pre>
+            <button id="copyBtn" class="hidden">Copy to Clipboard</button>
+        </div>
+    </div>
+
+    <div class="info-tooltip">
+        <div class="info-icon">ℹ</div>
+
+        <div class="tooltip-content">
+            <h3>How It Works</h3>
+            <p>
+                Enter a text prompt to generate an image with AI, then convert it to ASCII art.
+                Or upload your own image directly.
+            </p>
+
+            <ul>
+                <li><strong>Prompt</strong> describes what image to generate.</li>
+                <li><strong>Upload</strong> lets you use your own images.</li>
+                <li><strong>Contrast</strong> adjusts ASCII intensity after generation.</li>
+                <li><strong>Copy</strong> saves the ASCII art to your clipboard.</li>
+            </ul>
+
+            <p>
+                Uses Pollinations.ai for free image generation, then converts to ASCII
+                using pixel brightness mapping.
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
